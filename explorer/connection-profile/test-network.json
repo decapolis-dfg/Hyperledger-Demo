@@ -1,0 +1,99 @@
+{
+	"name": "test-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "exploreradmin",
+			"password": "exploreradminpw"
+		},
+		"enableAuthentication": true,
+		"organization": "ProducerMSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"mychannel": {
+			"peers": {
+				"peer0.producer.example.com": {},
+				"peer0.manufacturer.example.com": {},
+				"peer0.deliverer.example.com": {},
+				"peer0.retailer.example.com": {}
+			}
+		}
+	},
+	"organizations": {
+		"ProducerMSP": {
+			"mspid": "ProducerMSP",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/producer.example.com/users/User1@producer.example.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.producer.example.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/producer.example.com/users/User1@producer.example.com/msp/signcerts/User1@producer.example.com-cert.pem"
+			}
+		},
+		"ManufacturerMSP": {
+			"mspid": "ManufacturerMSP",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/manufacturer.example.com/users/User1@manufacturer.example.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.manufacturer.example.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/manufacturer.example.com/users/User1@manufacturer.example.com/msp/signcerts/User1@manufacturer.example.com-cert.pem"
+			}
+		},
+		"DelivererMSP": {
+			"mspid": "DelivererMSP",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/deliverer.example.com/users/User1@deliverer.example.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.deliverer.example.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/deliverer.example.com/users/User1@deliverer.example.com/msp/signcerts/User1@deliverer.example.com-cert.pem"
+			}
+		},
+		"RetailerMSP": {
+			"mspid": "RetailerMSP",
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/retailer.example.com/users/User1@retailer.example.com/msp/keystore/priv_sk"
+			},
+			"peers": ["peer0.retailer.example.com"],
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/retailer.example.com/users/User1@retailer.example.com/msp/signcerts/User1@retailer.example.com-cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.producer.example.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/producer.example.com/peers/peer0.producer.example.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.producer.example.com:7051"
+		},
+		"peer0.manufacturer.example.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/manufacturer.example.com/peers/peer0.manufacturer.example.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.manufacturer.example.com:9051"
+		},
+		"peer0.deliverer.example.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/deliverer.example.com/peers/peer0.deliverer.example.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.deliverer.example.com:10051"
+		},
+		"peer0.retailer.example.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/retailer.example.com/peers/peer0.retailer.example.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.retailer.example.com:8051"
+		}
+	}
+}
