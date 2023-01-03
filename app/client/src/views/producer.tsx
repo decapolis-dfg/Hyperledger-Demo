@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { PRODUCERDATA, RESPONSE } from "../types";
+import { RESPONSE } from "../types";
 import "./styles.css";
 
 

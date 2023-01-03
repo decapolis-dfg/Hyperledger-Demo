@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ERROR, RESPONSE } from "../types";
+import { ERROR } from "../types";
 import "./styles.css";
 
 export const GetHistory = () => {
@@ -19,17 +19,17 @@ export const GetHistory = () => {
     _response.status ? setResponse(JSON.parse(_response.status)) : setError(_response);
   };
 
-  const showDiff = (o1:any, o2:any) => {
-    let diff = Object.keys(o2).reduce((diff, key) => {
-      if (o1[key] === o2[key]) return diff
-      return {
-        ...diff,
-        [key]: o2[key]
-      }
-    }, {})
-    console.log(diff)
-    return diff
-  }
+  // const showDiff = (o1:any, o2:any) => {
+  //   let diff = Object.keys(o2).reduce((diff, key) => {
+  //     if (o1[key] === o2[key]) return diff
+  //     return {
+  //       ...diff,
+  //       [key]: o2[key]
+  //     }
+  //   }, {})
+  //   console.log(diff)
+  //   return diff
+  // }
   
   return (
     <div>

@@ -1,9 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
-
-
-
-
 .form {
   max-width: 420px;
   margin: 50px auto;
@@ -179,4 +175,72 @@ h1 {
   border-bottom: 1px solid #fff;
   font-size: 20px;
   color: #fff;
+}
+
+
+/* AWS SERVICES */
+
+.aws, .aws div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.aws section{
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  height: 20vh;
+}
+
+.aws label{
+  color: aqua;
+  font-weight: bold;
+}
+.aws label input[type=file]{
+  visibility: hidden;
+  display: none;
+}
+
+.aws div input[type=text]{
+  width: 90%;
+  padding: 1em;
+  background-color: transparent;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+  margin-top: 11px;
+}
+
+.aws ul{
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  list-style: none;
+  width: 90%;
+  padding: 0;
+  gap: 100px;
+  border-bottom: 1px solid #fff;
+
+}
+
+.aws ul li{
+  width: 500px;
+  height: 400px;
+}
+.aws ul li img{
+  width: 100%;
+  height: 100%;
+}
+
+.aws div h2{
+  font-size: 35px;
+  color: #fff;
+  border-bottom: 1px solid #cc4949;
+}
+
+.aws div h3{
+  color: rgb(80, 241, 80);
 }

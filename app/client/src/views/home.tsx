@@ -6,7 +6,7 @@ export const Home = () => {
     return(
         <div className="home">
             <div className='logo'>
-                <img src={delmonte}/>
+                <img src={delmonte} alt=""/>
             </div>
             <h1>Welcome to Hyperledger Demo</h1>
                 <ol>
@@ -15,6 +15,9 @@ export const Home = () => {
                 <li><Link to="/updateProduct">UpdateProduct</Link></li>
                <li> <Link to="/newProcess">NewProcess</Link></li>
                <li><Link to="/getHistory">Get History</Link></li>
+               <li ><Link to="awsServices" style={{
+                backgroundColor:"blue"
+               }}> AWS Services</Link></li>
                 </ol>
         </div>
     )

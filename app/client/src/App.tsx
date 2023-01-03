@@ -5,6 +5,7 @@ import { GetHistory } from './views/getHistory';
 import { Producer } from './views/producer';
 import { UpdateProduct } from './views/updateProduct';
 import { NewProcess } from './views/newProcess';
+import AwsServices from './views/awsServices';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/producer" element={<Producer />} />
           <Route path="/updateProduct" element={<UpdateProduct />} />
           <Route path="/newProcess" element={<NewProcess />} />
+          <Route path="/awsServices" element={<AwsServices />} />
         </Routes>
       </Router>
   );

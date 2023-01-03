@@ -26,16 +26,16 @@ export const GetProduct = () => {
     }
   };
 
-  const getMSPID = async () => {
-    const _tx = await fetch(`http://localhost:5000/api/testMSP`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    let _response = await _tx.json();
-    console.log(_response)
-  };
+  // const getMSPID = async () => {
+  //   const _tx = await fetch(`http://localhost:5000/api/testMSP`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   });
+  //   let _response = await _tx.json();
+  //   console.log(_response)
+  // };
 
 
   return (
