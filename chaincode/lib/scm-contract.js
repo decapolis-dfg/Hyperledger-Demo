@@ -4,58 +4,34 @@ const { Contract } = require('fabric-contract-api');
 
 class SupplyChain extends Contract {
 
-  async getMspId(ctx){
-    return await ctx.stub.getMspID();
-  }
 
-  async addProduct(ctx, product) {
+  async addAsset(ctx, asset) {
     console.info('============= START : Add asset ===========');
-    await ctx.stub.putState(JSON.parse(product).id.toString(), Buffer.from(product));
+    await ctx.stub.putState(JSON.parse(asset).id.toString(), Buffer.from(asset));
     console.info('============= END : Add asset ===========');
     return ctx.stub.getTxID()
   }
 
-  async addProcess(ctx, data) {
-    console.info('============= START : New Process ===========');
-    const _data = JSON.parse(data);
-    const keyAsBytes = await ctx.stub.getState(_data.id); 
-    if (!keyAsBytes || keyAsBytes.length === 0) {
-      throw new Error(`${_data.id} does not exist`);
-    }
-    let key = JSON.parse(keyAsBytes.toString());
-    key = {...key, ..._data}
-    await ctx.stub.putState(_data.id, Buffer.from(JSON.stringify(key)));
-    console.info('============= END : New Process ===========');
-    return ctx.stub.getTxID();
-  }
-
-  async queryAsset(ctx, _data) {
+  async queryAsset(ctx, assetId) {
     console.info('============= START : Query asset ===========');
-    const productId = JSON.parse(_data).id.toString();
-    const user = JSON.parse(_data).user.toString();
-
-    const assetAsBytes = await ctx.stub.getState(productId.toString()); 
+    const assetAsBytes = await ctx.stub.getState(assetId); 
     if (!assetAsBytes || assetAsBytes.length === 0) {
-      throw new Error(`${productId} does not exist`);
+      throw new Error(`${assetId} does not exist`);
     }
-    var _temp = JSON.parse(assetAsBytes.toString());
-    if(user !== 'admin'){
-      delete _temp['farm']
-    }
+    console.log(assetAsBytes.toString());
     console.info('============= END : Query asset ===========');
-    return _temp;
+    return assetAsBytes.toString();
   }
   
-  async setPosition(ctx, id, position, process) {
+  async setPosition(ctx, id, latitude, longitude) {
     console.info('============= START : Set position ===========');
     const keyAsBytes = await ctx.stub.getState(id); 
     if (!keyAsBytes || keyAsBytes.length === 0) {
       throw new Error(`${id} does not exist`);
     }
     let key = JSON.parse(keyAsBytes.toString());
-    key = {...key, position:position, process:process}
-    // key.position = position;
-    // key.process = process;
+    key.latitude = latitude;
+    key.longitude = longitude;
     await ctx.stub.putState(id, Buffer.from(JSON.stringify(key)));
     console.info('============= END : Set position ===========');
     return ctx.stub.getTxID();

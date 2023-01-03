@@ -1,2 +1,0 @@
-Installed chaincodes on peer:
-Package ID: scm-contract_1:52f47392cdb2e901851a96bc40202dd99cde9f45095b3bd4344bd0207a591456, Label: scm-contract_1
