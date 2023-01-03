@@ -9,15 +9,17 @@
 
 ### 3- Navigate to scripts
     Run $ ./createChannel.sh
-<br/>
+
     Run $ ./deployChaincode.sh
 
 ### 4- Navigate to app/server dir
     Run $ ./wallets.sh
-<br/>
+#### - Install Deps
     $ yarn
     Run $ nodemon index.ts
 
 ### 5- Open new terminal and navigate to app/client
+#### - Install Deps
     $ yarn
+#### - Run the app
     Run $ yarn start
